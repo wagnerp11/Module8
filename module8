@@ -1,0 +1,9 @@
+Student <- read.table(“Assignment 6 Dataset-1.txt”, header = TRUE, sep = “,”)
+
+sex <- Student$Sex
+
+StudentAverage = ddply(Student,”Sex”,transform,Grade.Average=mean(Grade))
+
+write.table(StudentAverage, “sortedAverage”)
+
+new <- subset(Student, grepl(“i”, Student$Name, ignore.case=T))
